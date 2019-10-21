@@ -11,6 +11,7 @@
             $this->load->model('admin_model');
             $this->load->library('form_validation');
             $this->load->library('session');
+            $this->load->helper(array('form', 'url'));
         }
         public function index()
         {
@@ -65,7 +66,6 @@
             }     
             $this->load->view('admin/admin', $data);
         }
-    
     }
     
     /* End of file Admin.php */

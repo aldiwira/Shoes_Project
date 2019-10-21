@@ -14,6 +14,18 @@
                 <input type="text" class="form-control" id="nama_barang" name="nama_barang">
             </div>
             <div class="form-group">
+                <label for="jenis_barang">Jenis Sepatu</label>
+                <select name="jenis_barang" id="jenis_barang" class="form-control">
+                    <option value="#" >Pilih jenis sepatu</option>
+                    <?php foreach ($jenis_sepatu as $key) {
+                        ?>
+                            <option value="<?=$key ?>" ><?=$key ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="harga">Harga Barang</label>
                 <input type="text" class="form-control" id="harga" name="harga">
             </div>

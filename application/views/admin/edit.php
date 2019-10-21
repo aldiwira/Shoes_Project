@@ -14,12 +14,20 @@
                 <input type="text" class="form-control" value="<?= $barang['nama_barang'] ?>" id="nama_barang" name="nama_barang">
             </div>
             <div class="form-group">
-                <label for="jurusan">Jenis Barang</label>
+                <label for="jenis_barang">Jenis sepatu</label>
                 <select name="jenis_barang" id="jenis_barang" class="form-control">
-                    <option value="#" ></option>
-                    <?php foreach ($jenis_sepatu as $key) {?>
-                            <option value="<?=$key ?>" ><?=$key ?></option>
-                    <?php } ?>
+                    <?php foreach ($jenis_sepatu as $key):
+                        if ($key == $barang['jenis_barang']) {
+                            ?>
+                            <option value="<?=$key ?>" selected="<?=$key ?>"><?=$key ?></option>
+                            <?php
+                        } else {
+                            ?>
+                            <option value="<?=$key ?>"><?=$key ?></option>
+                            <?php
+                        }
+                        ?>
+                    <?php endforeach; ?>
                 </select>
             </div>
             <div class="form-group">

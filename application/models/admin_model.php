@@ -15,7 +15,7 @@
             'harga' => $this->input->post('harga', true),
             'stok' => $this->input->post('stok', true),
             'jenis_barang' => $this->input->post('jenis_barang', true),
-            'image' => $this->_upload_image()
+            
         );
 
         $this->db->insert('barang', $data);
@@ -36,7 +36,6 @@
             'harga' => $this->input->post('harga', true),
             'stok' => $this->input->post('stok', true),
             'jenis_barang' => $this->input->post('jenis_barang', true),
-            'image' => $this->_upload_image()
        );
        $this->db->where('id_barang', $id);
        $this->db->update('barang', $data);
@@ -47,12 +46,12 @@
         $this->db->or_like('jenis_barang',$keyword);
         return $this->db->get('praktikum_ci')->result();
     }
-    public function _upload_image()
+    public function upload_image()
     {
 
         $config['upload_path']          = './assets/upload/product/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['file_name']            = "11";
+        $config['file_name']            = $this->id_barang;
         $config['overwrite']			= true;
         $config['max_size']             = 1024; // 1MB
         // $config['max_width']            = 1024;
@@ -60,11 +59,11 @@
 
         $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('image')) {
+        if ($this->upload->do_upload("image")) {
             return $this->upload->data("file_name");
+        } else {
+            return "default.jpg";
         }
-        
-        return "default.jpg";
     }
  }
  
