@@ -19,6 +19,27 @@
 
         $this->db->insert('barang', $data);
     }
+    public function hapus($id)
+    {
+        $this->db->where('id_barang', $id);
+        $this->db->delete('barang');
+    }
+    public function getbyid($id)
+    {
+        return $this->db->get_where('barang', array('id_barang' => $id))->row_array();
+    }
+    public function ubahData($id)
+    {
+       $data = array(
+            'nama_barang' => $this->input->post('nama_barang', true),
+            'harga' => $this->input->post('harga', true),
+            'stok' => $this->input->post('stok', true),
+            'image' => $this->_upload_image()
+       );
+       $this->db->where('id_barang', $id);
+       $this->db->update('barang', $data);
+    }
+
     public function _upload_image()
     {
 

@@ -1,6 +1,6 @@
 <div class="centering">
     <div class="font-weight-bold mt-3">
-        <h2>Tambah user</h2>
+        <h2>Edit <?= $barang['nama_barang'] ?></h2>
     </div>
     <div class="card-body">
     <?php if (validation_errors()): ?>
@@ -11,15 +11,15 @@
         <form action="" method="post">
             <div class="form-group">
                 <label for="nama_barang">Nama Barang</label>
-                <input type="text" class="form-control" id="nama_barang" name="nama_barang">
+                <input type="text" class="form-control" value="<?= $barang['nama_barang'] ?>" id="nama_barang" name="nama_barang">
             </div>
             <div class="form-group">
                 <label for="harga">Harga Barang</label>
-                <input type="text" class="form-control" id="harga" name="harga">
+                <input type="text" class="form-control" value="<?= $barang['harga'] ?>" id="harga" name="harga">
             </div>
             <div class="form-group">
                 <label for="stok">Stok Barang</label>
-                <input type="text" class="form-control" id="stok" name="stok">
+                <input type="text" class="form-control" value="<?= $barang['stok'] ?>" id="stok" name="stok">
             </div>
             <button type="submit" name="submit" class="btn btn-primary" float="none">Submit</button>
         </form>
