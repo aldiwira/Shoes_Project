@@ -14,6 +14,7 @@
             'nama_barang' => $this->input->post('nama_barang', true),
             'harga' => $this->input->post('harga', true),
             'stok' => $this->input->post('stok', true),
+            'jenis_barang' => $this->input->post('jenis_barang', true),
             'image' => $this->_upload_image()
         );
 
@@ -34,12 +35,18 @@
             'nama_barang' => $this->input->post('nama_barang', true),
             'harga' => $this->input->post('harga', true),
             'stok' => $this->input->post('stok', true),
+            'jenis_barang' => $this->input->post('jenis_barang', true),
             'image' => $this->_upload_image()
        );
        $this->db->where('id_barang', $id);
        $this->db->update('barang', $data);
     }
-
+    public function cariData($keyword)
+    {
+        $this->db->like('nama_barang',$keyword);
+        $this->db->or_like('jenis_barang',$keyword);
+        return $this->db->get('praktikum_ci')->result();
+    }
     public function _upload_image()
     {
 

@@ -5,17 +5,15 @@
             <?= $this->session->flashdata('flash-data'); ?>
         </div>
     <?php } ?>
-
-
     <div class="centering-row mt-3">
         <form action="" method="post" class="form-inline my-10 my-lg-2">
             <div class="input-group">
-                <input class="form-control mr-sm-2" type="text" placeholder="Cari data user" id="nama" name="key">
+                <input class="form-control mr-sm-2" type="text" placeholder="Cari Barang" id="nama" name="key">
             </div>
             <button class="btn btn-outline-primary" type="submit">Search</button>
         </form>
         <a class="ml-sm-2" href="<?= base_url(); ?>admin/tambah">
-            <button class="btn btn-primary">Tambah User</button>
+            <button class="btn btn-primary">Tambah Barang</button>
         </a>
     </div>
     <div class="text-center">

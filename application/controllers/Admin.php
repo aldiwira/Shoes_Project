@@ -25,6 +25,7 @@
             $this->form_validation->set_rules('nama_barang', 'nama_barang', 'required');
             $this->form_validation->set_rules('harga', 'harga', 'required');
             $this->form_validation->set_rules('stok', 'stok', 'required');
+            $data['jenis_sepatu']=['Sport','Streat', 'Fashion'];
             if ($this->form_validation->run() == FALSE) {
                 $data['content'] = $this->load->view('admin/tambah', $data, TRUE);
             }else{
@@ -54,11 +55,12 @@
             $this->form_validation->set_rules('nama_barang', 'nama_barang', 'required');
             $this->form_validation->set_rules('harga', 'harga', 'required');
             $this->form_validation->set_rules('stok', 'stok', 'required');
+            $data['jenis_sepatu']=['Sport','Streat', 'Fashion'];
             if ($this->form_validation->run() == FALSE) {
                 $data['content'] = $this->load->view('admin/edit', $data, TRUE);
             }else{
                 $this->admin_model->ubahData($id);
-                $this->session->set_flashdata('flash_data','diedit');
+                $this->session->set_flashdata('flash_data','Barang sudah diedit');
                 redirect('admin','refresh');
             }     
             $this->load->view('admin/admin', $data);

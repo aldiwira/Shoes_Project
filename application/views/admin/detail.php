@@ -10,6 +10,9 @@
                         <?= $barang['nama_barang']; ?>
                     </h5>
                     <p class="card-text">
+                    <?= $barang['jenis_barang']; ?>
+                    </p>
+                    <p class="card-text">
                     <?= $barang['harga']; ?>
                     </p>
                     <p class="card-text">
